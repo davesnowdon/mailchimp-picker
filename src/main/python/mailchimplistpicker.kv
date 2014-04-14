@@ -1,0 +1,72 @@
+#:kivy 1.0
+#:import fonts pygame.font
+#:import os os
+
+<ApiKeyDialog>:
+    size_hint: .5, .5
+    auto_dismiss: False
+    title: 'Please enter your API key'
+    f_key: apikey
+    BoxLayout:
+        orientation: 'vertical'
+        BoxLayout:
+            padding: 10
+            spacing: 10
+            Label:
+                text: 'API Key'
+            TextInput:
+                id: apikey
+                multiline: False
+                text: ''
+        BoxLayout
+            Button:
+                text: 'OK'
+                on_press: root.dismiss()
+
+<MailchimpListPicker>:
+    w_mailinglists: mailinglists
+    w_pickanother: pickanother
+    w_firstname: firstname
+    w_lastname: lastname
+    w_email: email
+    w_phone: phone
+    BoxLayout:
+        size: root.size
+        orientation: 'vertical'
+        Spinner:
+            id: mailinglists
+            text: 'Select mailing list'
+            size_hint: 1, 0.1
+        Button:
+            id: pickanother
+            text: "Pick another"
+            size_hint: 1, 0.1
+        GridLayout:
+            rows: 4
+            cols: 2
+            padding: 10
+            spacing: 10
+            Label:
+                text: "First name"
+            TextInput:
+                id: firstname
+                multiline: False
+                readonly: True
+            Label:
+                text: "Last name"
+            TextInput:
+                id: lastname
+                multiline: False
+                readonly: True
+            Label:
+                text: "Email"
+            TextInput:
+                id: email
+                multiline: False
+                readonly: True
+            Label:
+                text: "Phone"
+            TextInput:
+                id: phone
+                multiline: False
+                readonly: True
